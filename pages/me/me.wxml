@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="header">
+    <image src="{{user_font}}"></image>
+    <text>{{nick_name}}</text>
+  </view>
+
+  <view class="clause">
+    <view style="position: relative;" wx:for="{{oneLink}}" wx:for-item="item" wx:for-index="index" wx:key="index" bindtap="navTo" data-link="{{item.link}}">
+      <image src="{{item.pic}}"></image>
+      <text>{{item.title}}</text>
+      <mp-badge wx:if="{{index == oneLink.length-1 && utoken && mobile}}" content="{{replayCount}}" style="position: absolute;right: 0rpx;top: -12rpx;"></mp-badge>
+    </view>
+  </view>
+
+  <view class="single" bindtap="navTo" data-link="{{single.link}}" wx:if="{{utype == 'admin'}}">
+    <view>
+      <image src="{{single.pic}}"></image>
+      <text>{{single.title}}</text>
+    </view>
+    <image src="../../images/arrowR.png"></image>
+  </view>
+
+  <view class="many">
+
+    <view class="single" wx:for="{{twoLink}}" wx:for-item="item" wx:for-index="index" wx:key="index" bindtap="navTo" data-link="{{item.link}}">
+      <view>
+        <image src="{{item.pic}}"></image>
+        <text>{{item.title}}</text>
+      </view>
+      <image src="../../images/arrowR.png"></image>
+    </view>
+      <button type="default-light" size="27" session-from="weapp" open-type="contact">
+        <view><image src="../../images/service.png"></image>联系客服</view><image src="../../images/arrowR.png"></image></button>
+  </view>
+</view>

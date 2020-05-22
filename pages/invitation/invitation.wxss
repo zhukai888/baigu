@@ -1,0 +1,334 @@
+/* pages/invitation/invitation.wxss */
+
+.container {
+  min-height: 100%;
+  margin-bottom: 160rpx;
+}
+
+.content-top {
+  height: 100rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #323232;
+  position: relative;
+  padding: 0 24rpx;
+}
+
+.content-top image {
+  margin-left: 20rpx;
+  width: 11rpx;
+  height: 10rpx;
+}
+
+/* 点击更多弹出样式 */
+
+.content-hide {
+  display: none;
+}
+
+.content-show {
+  display: block;
+  position: relative;
+}
+
+.shade {
+  position: absolute;
+  right: 0rpx;
+  top: 10rpx;
+}
+
+
+.shade .content-title {
+  width: 226rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 2rpx 2rpx 4rpx rgba(240, 240, 240, 1);
+  border-radius: 16rpx;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 1);
+  border: 2rpx solid rgba(255, 255, 255, 1);
+}
+
+.shade .content-title .placement-delete {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0rpx 2rpx 0rpx 0rpx rgba(240, 240, 240, 1);
+}
+
+.shade .content-title .placement-delete .title {
+  padding: 30rpx 0;
+  font-weight: 500;
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 1);
+}
+
+.shade .content-title .placement-delete .title:last-child {
+  box-shadow: none;
+}
+
+.shade .content-title .placement-delete .delete {
+  width: 26rpx;
+  height: 26rpx;
+  padding-right: 20rpx;
+}
+
+.timeOpt {
+  height: 100rpx;
+  border-top: 1rpx solid #dfe4e6;
+  border-bottom: 1rpx solid #dfe4e6;
+  box-sizing: border-box;
+  line-height: 100rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  padding: 0 24rpx;
+  display: flex;
+}
+
+.timeOpt .date-state {
+  margin-right: 60rpx;
+}
+
+.content-center {
+  border-top: 10rpx solid #f7f7f7;
+  border-bottom: 10rpx solid #f7f7f7;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  align-items: center;
+  height: 230rpx;
+  box-sizing: border-box;
+}
+
+.content-center .line {
+  width: 2rpx;
+  height: 86rpx;
+  background-color: #dfe4e6;
+}
+
+.content-center .block .title {
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+}
+
+.body-view {
+  zoom: 0.5;
+}
+
+.wx-switch-input {
+  background: #2870F5 !important
+}
+
+.wx-switch-input::before{
+  background: #9A9A9A !important
+}
+
+.content-center .block .count {
+  padding-top: 30rpx;
+  font-size: 58rpx;
+  color: #333;
+  text-align: center;
+}
+
+.content-center-state {
+  background-color: #f7f7f7;
+  color: #666;
+  font-size: 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.content-center-state .tabs {
+  display: flex;
+}
+
+.content-center-state .tabs .itemBox {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
+.content-center-state .tabs .itemBox .tab {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.content-center-state .tabs .itemBox .tab.active {
+  color: rgba(40, 112, 245, 1);
+}
+
+.content-center-state .tabs  .itemBox .line {
+  width: 40rpx;
+  height: 4rpx;
+}
+
+.content-center-state .tabs .itemBox .line-active {
+  width: 40rpx;
+  height: 4rpx;
+  background: #2cc256;
+  box-shadow: 0px 2rpx 0px 0px rgba(240, 240, 240, 1);
+}
+
+.content-bottom {
+  padding: 30rpx 24rpx;
+  box-sizing: border-box;
+}
+
+.content-bottom .member {
+  display: flex;
+  padding-right: 24rpx;
+}
+
+.content-bottom .member .portrait {
+  min-width: 110rpx;
+  max-width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.content-bottom .member .content {
+  padding: 14rpx 0;
+  flex: 1;
+}
+
+.content-bottom .member .content .name {
+  font-size: 32rpx;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-bottom .name .text {
+  display: flex;
+  align-items: center;
+}
+
+.content-bottom .name .text nickname {
+  max-width: 430rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.content-bottom .name .text .top {
+  background-color: #2870f5;
+  color: #fff;
+  font-size: 20rpx;
+  width: 70rpx;
+  height: 26rpx;
+  border-radius: 13rpx;
+  margin-left: 20rpx;
+  text-align: center;
+  line-height: 26rpx;
+}
+
+.content-bottom .member .content .name .img{
+  z-index: 99
+}
+
+.content-bottom .member .content .name .image {
+  width: 34rpx;
+  height: 26rpx;
+}
+
+.content-bottom .member .content .data {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 24rpx;
+  padding-top: 20rpx;
+}
+
+.content-bottom .posts-content {
+  /* min-height: 290rpx; */
+  margin: 18rpx 24rpx 20rpx 0;
+  background: rgba(247, 247, 247, 1);
+}
+
+.content-bottom .posts-content .posts-text {
+  padding: 16rpx 22rpx;
+}
+
+.content-bottom .posts-img {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-bottom .posts-img .posts-imgs {
+  width: 168rpx;
+  height: 168rpx;
+  margin: 0 10rpx 10rpx 0;
+}
+
+.content-bottom .posts-img .posts-imgs:last-child {
+  margin-right: 0rpx;
+}
+
+.content-bottom .posts-img .posts-imgs .posts-iamge {
+  width: 168rpx;
+  height: 168rpx;
+  margin-bottom: 10rpx;
+}
+
+.content-bottom .refuse-post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 110rpx;
+}
+
+.content-bottom .refuse-post .refuse-border {
+  height: 110rpx;
+  line-height: 110rpx;
+  font-size: 32rpx;
+  text-align: center;
+  box-sizing: border-box;
+    border-radius: 8rpx;
+}
+
+.content-bottom .refuse-post .refuse {
+  width: 230rpx;
+  border: 2rpx solid rgba(56, 56, 56, 1);
+  color: rgba(27, 27, 27, 1);
+}
+
+.content-bottom .refuse-post .agree {
+  width: 460rpx;
+  background: rgba(40, 112, 245, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.content-bottom .icon {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.content-bottom .icon .message {
+  display: flex;
+  align-items: center;
+}
+
+.content-bottom .icon .message .icon-size {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.content-bottom .icon .message .num {
+  font-size: 28rpx;
+  color: rgba(102, 102, 102, 1);
+}
+
+.content-bottom .line {
+  width: 702rpx;
+  height: 2rpx;
+  margin: 40rpx 0;
+  background: rgba(240, 245, 247, 1);
+}

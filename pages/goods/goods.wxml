@@ -1,0 +1,134 @@
+<view class="navTab">
+  <scroll-view scroll-x="true">
+    <view style="display:flex;flex-wrap: nowrap;">
+      <view class="nav {{navIndex == index? 'active' : ''}}" wx:for="{{categoryList}}" wx:for-index="index" wx:for-item="item" wx:key="index" data-index="{{index}}" bindtap="navChange">
+        <text>{{item.name}}</text>
+        <image src="../../images/navChecked.png" wx:if="{{navIndex == index}}"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="container">
+  <view class="goodsList" wx:if="{{goodsList.length>0}}">
+    <view class="good" bindtap="detailShow" data-index="{{index}}" wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+      <image src="{{cdn_url + item.goods_front_image}}"></image>
+      <view class="g-content">
+        <view class="omit">{{item.name}}</view>
+        <view class="g-price">
+          <view>
+            <text><text style="font-size:24rpx;">￥</text>{{item.shop_price}}</text>
+            <text style="text-decoration: line-through;">￥{{item.market_price}}</text>
+          </view>
+          <image src="../../images/more.png" catchtap="showShadow" data-index="{{index}}"></image>
+        </view>
+      </view>
+
+      <view class="shadow" catchtap="returnNull" wx:if="{{item.showShadow}}">
+        <view class="s-header">
+          <view bindtap="listAddCart" data-id="{{item.id}}">
+            <image src="../../images/gcar.png"></image>
+            <text>加入购物车</text>
+          </view>
+          <view bindtap="placeOrder" data-item="{{item}}">
+            <image src="../../images/pOrder.png"></image>
+            <text decode>直接下单&emsp;</text>
+          </view>
+          <button open-type="share" data-item="{{item}}">
+            <image src="../../images/forward.png"></image>
+            <text decode>分享好物&emsp;</text>
+          </button>
+        </view>
+        <view class="s-bottom">
+          <image src="../../images/down.png" catchtap="closeShadow" data-index="{{index}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="noData" wx:if="{{goodsList.length == 0 && !loading}}">
+    暂无商品
+  </view>
+</view>
+
+<view class="car" bindtap="changeCar">
+  <image src="../../images/car.png"></image>
+  <mp-badge content="{{cartCount}}" style="position: absolute;right: 10rpx;top: 10rpx;"></mp-badge>
+</view>
+
+<view class="carShadow" wx:if="{{showCar}}" bindtap="changeCar">
+  <view class="carDetail" catchtap="returnNull">
+    <view class="header">
+      <view bindtap="chooseAll" class="left">
+        <image src="{{chooseAll ? '../../images/checked.png' : '../../images/nochecked.png'}}"></image>全部选择</view>
+    </view>
+    <view class="content">
+      <view wx:if="{{cartList.length>0}}">
+        <view class="cargood" bindtap="choose" data-index="{{index}}" wx:for="{{cartList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+          <image src="{{item.choose ? '../../images/checked.png' : '../../images/nochecked.png'}}"></image>
+          <image src="{{cdn_url+item.goods.goods_front_image}}"></image>
+          <view>
+            <view class="cg-title">
+              <view class="omit">{{item.goods.name}}</view>
+              <image src="../../images/del.png" catchtap="delCart" data-id="{{item.id}}" data-index="{{index}}"></image>
+            </view>
+            <view class="cg-price">
+              <view>
+                <text style="color:#FF0000">￥<text style="font-size:32rpx;">{{item.goods.shop_price}}</text></text>
+                <text style="color:#999999;padding-left:20rpx;text-decoration: line-through;">￥{{item.goods.market_price}}</text>
+              </view>
+              <view catchtap="returnNull">
+                <view bindtap="cartReduce" data-index="{{index}}">－</view>
+                <input type="number" value="{{item.nums}}" bindinput="cartInput" bindblur="cartNumsBlur" data-index="{{index}}"></input>
+                <view bindtap="cartAdd" data-index="{{index}}">＋</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="noData" wx:else>
+        暂无数据
+      </view>
+
+    </view>
+    <view class="total" wx:if="{{cartList.length>0}}">
+      合计：
+      <text style="color:#FF0000">{{totalPrice}}</text>元
+    </view>
+
+    <view class="pay" bindtap="placePay" wx:if="{{cartList.length>0}}">
+      直接付款
+    </view>
+  </view>
+</view>
+
+<view class="goodShadow" wx:if="{{goodShadow}}">
+  <view class="gs-detail">
+    <swiper autoplay indicator-dots indicator-color="#fff" indicator-active-color="#FFD618">
+      <block wx:for="{{detailGood.images}}" wx:for-index="index" wx:for-item="image" wx:key="index">
+        <swiper-item>
+          <image src="{{cdn_url + image}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="omit">{{detailGood.name}}</view>
+    <view class="gs-price">
+      <view>
+        <text style="color:#FF0000">￥<text style="font-size:45rpx;">{{detailGood.total}}</text></text>
+        <text style="color:#999999;padding-left:20rpx;text-decoration: line-through">￥{{detailGood.market_price}}</text>
+      </view>
+      <view>
+        <view bindtap="reduce">－</view>
+        <input type="number" bindinput="detailNumInput" bindblur="detailNumBlur" value="{{detailGood.nums}}"></input>
+        <view bindtap="plus">＋</view>
+      </view>
+    </view>
+
+    <view class="option">
+      <view bindtap="listAddCart" data-id="{{detailGood.id}}" data-nums="{{detailGood.nums}}">购物车</view>
+      <view bindtap="placeOrder" data-item="{{detailGood}}">直接下单</view>
+    </view>
+  </view>
+  <view class="close">
+    <image src="../../images/close.png" bindtap="detailClose"></image>
+  </view>
+</view>

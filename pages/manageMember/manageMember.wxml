@@ -1,0 +1,51 @@
+<view class="container" bindtap="closeTime">
+  <view class="time">
+    <view catchtap="openTime">
+      <span>{{time}}</span>
+      <image src="../../images/f-over.png"></image>
+    </view>
+    <view class="timeOpt" wx:if="{{timeFlag}}">
+      <text bindtap="changeTime" data-time="0">实时</text>
+      <text bindtap="changeTime" data-time="7">近七天</text>
+      <text bindtap="changeTime" data-time="30">近30天</text>
+    </view>
+  </view>
+
+  <view class="total">
+    <view class="block">
+      <view class="title">新增会员数</view>
+      <view class="count">{{news}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="block">
+      <view class="title">总会员数</view>
+      <view class="count">{{all}}</view>
+    </view>
+  </view>
+
+  <view class="manage">
+    <text style="{{ navIndex == 0 ? 'color:#2870F5' : ''}}" bindtap="navchange" data-index="0">新增会员</text>
+    <text style="{{ navIndex == 1 ? 'color:#2870F5' : ''}}" bindtap="navchange" data-index="1">总会员</text>
+  </view>
+
+  <view class="dataTable" wx:if="{{detailList.length > 0}}">
+    <view class="member" wx:for="{{detailList}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+      <image src="{{item.user_font}}"></image>
+      <view class="content">
+        <view class="name">
+          <view>{{item.name}}</view>
+          <text wx:if="{{item.utype == 'admin'}}">管理员</text>
+        </view>
+        <view class="data">
+          <view>
+            <text>订单：{{item.order}}</text>
+            <text>消费：{{item.order_mount}}</text>
+          </view>
+          <text>{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <view class="b-noData" wx:if="{{detailList.length == 0 && !loading}}">暂无数据</view>
+</view>

@@ -1,0 +1,129 @@
+.container {
+  min-height: 100%;
+  background-color: #f7f7f7;
+  /* box-sizing: border-box; *//* overflow: scroll; */
+}
+
+.header {
+  height: 260rpx;
+  background-color: #2981f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 30rpx;
+  box-sizing: border-box;
+}
+
+.header>view {
+  text-align: center;
+  color: #fff;
+}
+
+.header>view>view:nth-child(1) {
+  padding-bottom: 30rpx;
+  font-size: 36rpx;
+}
+
+.header>view>view:nth-child(2) {
+  font-size: 28rpx;
+}
+
+.application {
+  margin: 0 24rpx;
+  position: relative;
+  top: -40rpx;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30rpx 20rpx;
+}
+
+.application .title {
+  font-size: 32rpx;
+  color: #333;
+  padding-bottom: 40rpx;
+}
+
+.application .option {
+  display: flex;
+}
+
+.application .option image {
+  width: 84rpx;
+  height: 84rpx;
+}
+
+.application .option>view {
+  text-align: center;
+  margin-right: 60rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.overview {
+  margin: 0 24rpx;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30rpx 20rpx 0
+}
+
+.overview .title {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  color: #333;
+  padding-bottom: 50rpx;
+}
+
+.overview .title image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 20rpx;
+}
+
+.data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around
+}
+
+.data>view {
+  width: 30%;
+  text-align: center;
+  line-height: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+.data>view>view:nth-child(1) {
+  color: #343434;
+  font-size: 36rpx;
+  padding-bottom: 30rpx;
+}
+
+.data>view>view:nth-child(2) {
+  color: #666;
+  font-size: 24rpx;
+}
+.z-tarbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100rpx;
+  z-index: 99;
+}
+
+.z-tarbar image{
+  width: 44rpx;
+  height: 44rpx;
+  margin-bottom: 10rpx;
+}
+
+.z-tarbar>view{
+  text-align: center;
+  font-size: 22rpx;
+  color: #676767;
+    width:30%;
+}

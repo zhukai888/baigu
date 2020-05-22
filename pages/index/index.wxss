@@ -1,0 +1,123 @@
+.container {
+  min-height: 100%;
+  padding: 10rpx 24rpx;
+  box-sizing: border-box;
+}
+
+.top {
+  text-align: center;
+}
+
+.top input {
+  background-color: #f2f2f2;
+  border-radius: 40rpx;
+  height: 80rpx;
+  width: 100%;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.recomend {
+  padding-top: 40rpx;
+}
+
+.recomend .r-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.recomend .r-title>view>text {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: rgba(24, 24, 24, 1);
+}
+
+.recomend .r-title image {
+  width: 26rpx;
+  height: 32rpx;
+  margin-left: 12rpx;
+}
+
+.recomend .swiper {
+  padding-top: 20rpx;
+  height: 260rpx;
+  border-radius: 12rpx;
+}
+
+.recomend .swiper>swiper {
+  height: 100%;
+}
+
+.recomend .swiper image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+}
+
+.classify {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20rpx;
+  border-bottom: 7rpx solid rgba(242, 242, 242, 1);
+}
+
+.classify>view {
+  width: 25%;
+  text-align: center;
+  padding-top: 40rpx;
+}
+
+.classify>view>image {
+  /* height: 70rpx; */
+  width: 38%;
+}
+
+.classify>view>view {
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+}
+
+.hotspot {
+  padding-top: 30rpx;
+  display: flex;
+  height: 88rpx;
+}
+
+.hotspot .h-title {
+  font-size: 32rpx;
+  font-weight: 900;
+  padding-right: 20rpx;
+  min-width: 84rpx;
+  box-sizing: border-box;
+}
+
+.hotspot .h-content {
+  line-height: 44rpx;
+}
+
+.hotspot .h-content>view {
+  flex: 1;
+  display: block;
+  height: 44rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 610rpx;
+}
+
+.hotspot .h-content>view>text:nth-child(1) {
+  color: #ffd618;
+  padding-right: 10rpx;
+}
+
+.activity {
+  padding-top: 20rpx;
+}
+
+.activity>image {
+  width: 100%;
+  height: 210rpx;
+  margin-bottom: 10rpx;
+  border-radius: 12rpx;
+}

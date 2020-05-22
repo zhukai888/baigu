@@ -1,0 +1,33 @@
+.headView {
+  margin: 90rpx 50rpx 90rpx 50rpx; /*上右下左*/
+}
+
+.headImageView {
+  display: flex;
+  justify-content: center;
+}
+
+.headImage {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.titleText {
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.contentText {
+  font-size: 30rpx;
+  color: #666;
+  text-align: center;
+}
+
+.authBtn {
+  margin-top: 60rpx;
+  width: 200rpx;
+  height: 90rpx;
+  font-size: 36rpx;
+}

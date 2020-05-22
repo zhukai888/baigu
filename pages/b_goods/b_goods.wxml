@@ -1,0 +1,48 @@
+<view class="navTab">
+  <scroll-view scroll-x="true">
+    <view style="display:flex;flex-wrap: nowrap;">
+      <view class="nav {{navIndex == index? 'active' : ''}}" wx:for="{{categoryList}}" wx:for-index="index" wx:for-item="item" wx:key="index" data-index="{{index}}" bindtap="navChange">
+        <text>{{item.name}}</text>
+        <image src="../../images/navChecked.png" wx:if="{{navIndex == index}}"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="container">
+  <view class="search">
+    <input placeholder="请输入搜索内容" confirm-type="search" bindconfirm="search" bindinput="searchInput"></input>
+  </view>
+  <view class="goods" wx:if="{{goodList.length > 0}}">
+    <view class="good" wx:for="{{goodList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <image src="{{cdn_url+item.goods_front_image}}"></image>
+      <view class="info">
+        <view class="name">
+          <view class="title">{{item.name}}</view>
+          <!-- <view class="recommed">推荐</view> -->
+        </view>
+        <view class="p_count">
+          <text class="price">{{item.shop_price}}</text>
+          <text class="count">已售{{item.sell_nums}}件</text>
+        </view>
+        <view class="btn">
+          <button class="low" bindtap="lowGood" data-index="{{index}}"  data-id="{{item.id}}" data-status="0" wx:if="{{item.is_use}}" style="border:0">已下架</button>
+          <button bindtap="lowGood" data-id="{{item.id}}" data-index="{{index}}"  data-status="1" wx:else>已上架</button>
+          <button bindtap="openDel" data-item="{{item}}" data-index="{{index}}">删除</button>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class="b-noData" wx:if="{{goodList.length==0 && !loading}}">暂无数据</view>
+</view>
+
+
+<view class="sure" wx:if="{{sureFlag}}" bindtap="closeDel">
+  <view class="dialog">
+    <text class="close" bindtap="closeDel">×</text>
+    <view class="title">是否确认删除</view>
+    <view class="tip">产品删除后将无法继续对客户展示</view>
+    <button class="sureBtn" bindtap="sureDel">确认</button>
+  </view>
+</view>

@@ -1,0 +1,114 @@
+<!--pages/invitation/invitation.wxml-->
+<view class="container" bindtap="close">
+  <!-- 顶部日期选择 -->
+  <view class="content-top" catchtap="closeTime">
+    <view catchtap="openTime">
+      <span>{{dateNow}}</span>
+      <image src="../../images/f-over.png"></image>
+    </view>
+    <view class="timeOpt" wx:if="{{timeFlag}}">
+      <view class="date-state" wx:for="{{valueDate}}" wx:key="index" wx:for-index="index" data-time="{{item.time}}" catchtap="getTimeNum" wx:for-item="item">{{item.date}}</view>
+    </view>
+  </view>
+  <!-- 帖子数量统计 -->
+  <view class="content-center">
+    <view class="block">
+      <view class="title">被投诉帖子</view>
+      <view class="count">{{report}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="block">
+      <view class="title">全部帖子</view>
+      <view class="count">{{normal}}</view>
+    </view>
+  </view>
+  <!-- 帖子状态选择 -->
+  <view class="content-center-state">
+    <view class="tabs">
+      <view class="itemBox" wx:for="{{postType}}" wx:key="index" wx:for-index="index" wx:for-item="item" catchtap="changeTab" data-id='{{index}}'>
+        <view class="tab {{activeTab == index ?'active':''}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 帖子具体内容 -->
+  <view class="content-bottom">
+    <view class="bottom" wx:for="{{results}}" wx:key="index" wx:for-item="item" wx:for-index="index" wx:if="{{results.length>0}}">
+      <!-- 头像、昵称等信息 -->
+      <view class="member">
+        <image class="portrait" src="{{item.user.user_font}}"></image>
+        <view class="content">
+          <!-- 顶部信息 -->
+          <view class="name">
+            <!-- 文本内容 -->
+            <view class="text">
+              <view class="nickname">{{item.user.nick_name}}</view>
+              <text class="top" wx:if="{{item.is_top && activeTab==1}}">置顶</text>
+            </view>
+            <!-- 更多按钮 -->
+            <view class="img" data-index="{{index}}" catchtap="choice" wx:if="{{activeTab === 1}}">
+              <image class="image" src="../../images/moreBtn.png"  ></image>
+              <!-- 点击更多选项弹出样式 -->
+              <view class="content-show" wx:if="{{item.showView}}">
+                <view class="shade">
+                  <view class="content-title">
+                    <view class="placement-delete" catchtap="returnNull">
+                      <view class="title">是否置顶</view>
+                      <view class="body-view" catchtap="returnNull">
+
+                        <view class="text-area">
+                          <switch color="#2870F5" checked="{{item.is_top}}" bindchange="changeZD" data-id="{{item.id}}" data-index="{{index}}"></switch>
+                        </view>
+
+                      </view>
+                    </view>
+                    <view class="placement-delete" catchtap="deletePost" data-id="{{item.id}}" data-index="{{index}}">
+                      <view class="title">删除帖子</view>
+                      <image class="delete" src="../../images/del.png"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- 发布时间 -->
+          <view class="data">
+            <text>发布时间：{{item.add_time}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 帖子内容展示 -->
+      <view class="posts-content">
+        <view class="posts-text">{{item.title}}</view>
+      </view>
+      <!-- 图片展示 -->
+      <view class="posts-img">
+        <view class="posts-imgs" wx:for="{{item.imgs}}" wx:key="ins" wx:for-item="its" wx:for-index="ins" catchtap="preview" data-src="{{its}}" data-index="{{index}}">
+          <image class="posts-iamge" src="{{cdn_url + its}}"></image>
+        </view>
+      </view>
+      <!-- 被投诉帖子 -->
+      <view class="refuse-post" wx:if="{{activeTab === 0}}">
+        <view class="refuse-border refuse" catchtap="redusePost" data-id="{{item.id}}" data-index="{{index}}">
+          拒绝
+        </view>
+        <view class="refuse-border agree" catchtap="deletePost" data-id="{{item.id}}" data-index="{{index}}">
+          同意删除
+        </view>
+      </view>
+      <!-- 全部帖子 -->
+      <view class="icon" wx:if="{{activeTab === 1}}">
+        <view class="message" style="margin-right: 90rpx;">
+          <image class="icon-size" src="../../images/talk.png"></image>
+          <view class="num">{{item.rnums}}</view>
+        </view>
+        <view class="message">
+          <image class="icon-size" src="../../images/nolike.png"></image>
+          <view class="num">{{item.fav_nums}}</view>
+        </view>
+      </view>
+      <!-- 分割线 -->
+      <view class="line"></view>
+    </view>
+    <view class="b-noData" wx:if="{{results.length == 0 && !loading}}">暂无数据</view>
+  </view>
+</view>

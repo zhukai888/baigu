@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="top">
+    <input placeholder="请输入搜索内容" value="{{title}}" bindinput="inputTitle" confirm-type="search" bindconfirm="search"></input>
+  </view>
+  <view class="recomend">
+    <view class="r-title">
+      <view>
+        <text>热门推荐</text>
+        <image src="../../images/hot.png"></image>
+      </view>
+      <text><text style="color:#FFD618">{{recomendNum}}</text>/{{bannerList.length}}</text>
+    </view>
+    <view class="swiper">
+      <swiper autoplay bindchange="bannerChange">
+        <block wx:for="{{bannerList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+          <swiper-item>
+            <image src="{{cdn_url+item.image}}" bindtap="goodsTo" data-id="{{item.goods}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <view class="classify">
+    <view wx:for="{{categoryList}}" wx:for-index="index" wx:for-item="item" wx:key="index" bindtap="categoryTo" data-id="{{item.id}}">
+      <image src="{{cdn_url+item.icon}}" mode="widthFix"></image>
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+  <view class="hotspot">
+    <view class="h-title">
+      <view>最新</view>
+      <view>热点</view>
+    </view>
+    <view class="h-content">
+      <view wx:for="{{newsList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+        <text>•</text><text>{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="recomend">
+    <view class="r-title">
+      <view>
+        <text>最新活动</text>
+      </view>
+    </view>
+    <view class="activity">
+      <block wx:for="{{activeList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+        <image bindtap="payRecord" data-id="{{item.goods}}" src="{{cdn_url+item.image}}"></image>
+      </block>
+    </view>
+  </view>
+</view>

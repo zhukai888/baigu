@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="coupon" bindtap="changeShadow" data-index="{{index}}" wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="index" wx:if="{{couponList.length > 0}}">
+    <image src="../../images/receive.png"></image>
+    <view class="content">
+      <view class="condition">
+        <view>
+          <text style="font-size:115rpx">{{item.lines}}</text>
+          <text>元</text>
+        </view>
+        <view>{{item.name}}</view>
+      </view>
+      <view class="time">活动时间：{{item.st_time}}-{{item.en_time}}</view>
+    </view>
+  </view>
+  <view class="nodata" wx:if="{{couponList.length == 0 && !loading}}">暂无数据</view>
+</view>
+
+<view class="couponShadow" wx:if="{{couponShadow}}">
+  <view class="receive">
+    <view>
+      <text style="color:#FF0025">{{couponObj.lines}}</text>元优惠券
+    </view>
+    <view>领取成功</view>
+    <view bindtap="goodsTo">挑选商品</view>
+  </view>
+  <image src="../../images/close.png" bindtap="closeShadow"></image>
+</view>

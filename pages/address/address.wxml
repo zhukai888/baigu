@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="addAddress">
+    <view bindtap="addAddress">
+      <image src="../../images/addAddress.png"></image>
+      <text>添加新地址</text>
+    </view>
+  </view>
+
+  <view class="address" wx:if="{{addressList.length>0}}">
+    <view class="detail" wx:for="{{addressList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="top">
+        <view class="left" catchtap="changeDefault" data-item="{{item}}">
+          <image src="{{item.is_default ? '../../images/checked.png' : '../../images/nochecked.png'}}"></image>
+          <text>默认收货地址</text>
+        </view>
+        <view class="right" catchtap="addAddress" data-id="{{item.id}}">
+          <image src="../../images/edit.png"></image>
+          <text>编辑</text>
+        </view>
+      </view>
+      <view class="bottom" bindtap="confOrder" data-item="{{item}}">
+        <view>
+          <text>收货地址：</text>{{item.province == item.city ? item.city+item.district+item.address : item.province+item.city+item.district+item.address}}
+        </view>
+        <view>
+          <text>联系人：</text>{{item.signer_name}}
+        </view>
+        <view>
+          <text>电话：</text>{{item.signer_mobile}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="noAddress" wx:if="{{addressList.length == 0 && !loading}}">
+    <image src="../../images/noAddress.png"></image>
+    <view>
+      我是楼下超市，请放心填写收货地址~
+    </view>
+    <view>收到订单后30分钟左右送达~</view>
+    <view>代拿快递可备注（仅限放在我店里的邮件哦~）</view>
+  </view>
+</view>

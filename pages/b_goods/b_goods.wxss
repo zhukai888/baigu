@@ -1,0 +1,206 @@
+.navTab {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70rpx;
+  width: 100%;
+  white-space: nowrap;
+  z-index: 2;
+  background-color: #2981f8;
+}
+
+.navTab .scroll {
+  display: flex;
+}
+
+.navTab .nav {
+  padding: 0 30rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.navTab .active>text {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.navTab image {
+  width: 36rpx;
+  height: 13rpx;
+  margin: 0 auto;
+  margin-top: 10rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.container {
+  padding: 95rpx 0;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.container .search {
+  margin: 0 24rpx;
+}
+
+.container .search input {
+  background-color: #f2f2f2;
+  height: 80rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.goods {
+  padding-top: 20rpx;
+}
+
+.goods .good {
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #f2f2f2;
+  padding: 20rpx 24rpx;
+}
+
+.goods .good image {
+  min-width: 144rpx;
+  max-width: 144rpx;
+  height: 144rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.goods .good .info {
+  flex: 1;
+}
+
+.goods .good .info .p_count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8rpx 0;
+}
+
+.goods .good .info .p_count .price {
+  font-size: 28rpx;
+  color: #f00;
+}
+
+.goods .good .info .p_count .count {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.goods .good .info .name {
+  display: flex;
+  align-items: flex-end;
+}
+
+.goods .good .info .name .title {
+  color: #1b1b1b;
+  font-size: 32rpx;
+  max-width: 430rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.goods .good .info .name .recommed {
+  margin-left: 20rpx;
+  background-color: #2870f5;
+  border-radius: 13rpx;
+  width: 58rpx;
+  height: 26rpx;
+  color: #fff;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goods .good .info .btn {
+  text-align: right;
+}
+
+.goods .good .info .btn button {
+  font-weight: 400;
+  display: inline-flex;
+  padding: 0;
+  width: 120rpx;
+  border-radius: 22rpx;
+  height: 44rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  border: 1rpx solid #999;
+  box-sizing: border-box;
+  margin-left: 30rpx;
+  color: #999;
+  background-color: #fff;
+}
+
+.low{
+  background-color: #2870F5!important;
+  color: #fff!important;
+}
+
+.sure {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+.sure .dialog {
+  background-color: #fff;
+  width: 620rpx;
+  height: 380rpx;
+  border-radius: 12rpx;
+  padding-top: 80rpx;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.sure .dialog .close {
+  position: absolute;
+  right: 10rpx;
+  top: 0rpx;
+  font-size: 46rpx;
+  color: #ccc;
+  padding: 0 20rpx;
+}
+
+.sure .dialog .title {
+  color: #000;
+  font-size: 42rpx;
+}
+
+.sure .dialog .tip {
+  color: #666;
+  font-size: 28rpx;
+  padding: 24rpx 0 50rpx;
+}
+
+.sure .dialog .sureBtn {
+  width: 380rpx;
+  height: 80rpx;
+  background: rgba(40, 112, 245, 1);
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #fff;
+}

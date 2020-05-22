@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-tabbar": "../components/tabbar/tabbar",
+    "mp-badge": "../components/badge/badge"
+  },
+  "navigationBarTitleText": "商品分类"
+}

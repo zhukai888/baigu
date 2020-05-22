@@ -1,0 +1,97 @@
+<view class="container">
+  <view class="top">
+    <image src="../../images/orderAddress.png"></image>
+    <view class="content">
+      <view wx:if="{{addressObj}}">
+        <view>
+          <text>{{addressObj.signer_name}}</text>
+          <text>{{addressObj.signer_mobile}}</text>
+        </view>
+        <view>{{addressObj.province == addressObj.city ? addressObj.city + addressObj.district + addressObj.address : addressObj.province + addressObj.city + addressObj.district + addressObj.address}}</view>
+        <view>30分钟送达，请确保家中有人哦~</view>
+      </view>
+      <view wx:else bindtap="chooseAddress" style="height:250rpx;line-height:250rpx;font-size: 32rpx;">暂无常用地址,请填写收货地址</view>
+    </view>
+    <image src="../../images/arrowR.png" bindtap="chooseAddress"></image>
+  </view>
+  <view class="good">
+    <view wx:if="{{goodObj}}">
+      <view class="header">
+        <image src="{{cdn_url+goodObj.goods_front_image}}"></image>
+        <view class="detail">
+          <view class="omit">{{goodObj.name}}</view>
+          <view class="price">
+            <text>￥<text style="font-size:32rpx">{{goodObj.shop_price}}</text></text>
+            <text style="color:#999999">x{{goodObj.nums}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{cartList.length >0}}">
+      <view class="header" wx:for="{{cartList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+        <image src="{{cdn_url+item.goods.goods_front_image}}"></image>
+        <view class="detail">
+          <text  class="omit">{{item.goods.name}}</text>
+          <view  class="price" >
+            <text>￥<text style="font-size:32rpx">{{item.goods.shop_price}}</text></text>
+            <text style="color:#999999">x{{item.nums}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+        <view wx:if="{{goods.length >0}}">
+      <view class="header" wx:for="{{goods}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+        <image src="{{cdn_url+item.goods_front_image}}"></image>
+        <view class="detail">
+          <text  class="omit">{{item.name}}</text>
+          <view  class="price" >
+            <text>￥<text style="font-size:32rpx">{{item.shop_price}}</text></text>
+            <text style="color:#999999">x{{item.nums}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="middle">
+      <view class="info">
+        <text><text class="m-content">关于配送</text>
+        <text style="color:#666;font-size:28rpx;">预计30送达</text></text>
+        <text wx:if="{{ps == 0}}">无配送费</text>
+        <text wx:else>配送费{{ps}}元</text>
+      </view>
+      <view class="coupon" bindtap="showCostDetailFun">
+        <text>优惠券</text>
+        <text>{{couponObj ? couponObj.name :'无可用优惠券' }}</text>
+      </view>
+      <view class="remarks">
+        <text>订单备注</text>
+        <textarea placeholder="预计30送达" value="{{post_script}}" bindblur="postBlur"></textarea>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view hidden="{{!showCostDetail}}" class="mCostDetail" bindtap="hideCostDetailFun">
+  <view class="mCostDetail__box" animation="{{animationData}}">
+    <scroll-view scroll-y="{{true}}" style='height: 100%;padding: 0 30rpx;box-sizing: border-box;'>
+      <view class="chooseCoupon" data-index="{{index}}" wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+        <image src="../../images/receive.png"></image>
+        <view class="content">
+          <view class="condition">
+            <view>
+              <text style="font-size:115rpx">{{item.lines}}</text>
+              <text>元</text>
+            </view>
+            <view>{{item.name}}</view>
+          </view>
+          <view class="time">活动时间：{{item.st_time}}-{{item.en_time}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<view class="submit">
+  <text>共{{count}}件</text>
+  <text>总计：<text style="color:#FF0000">{{total+ps-(couponObj ? couponObj.lines : 0)}}</text>元</text>
+  <view bindtap="createOrder">提交订单</view>
+</view>

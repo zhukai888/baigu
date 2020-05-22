@@ -1,0 +1,79 @@
+<view class="container">
+  <view class="header">
+    <view class="pay" bindtap="goOrderState" data-index="0">
+      <view>{{pay_pay}}</view>
+      <view>待付款</view>
+    </view>
+    <view class="send" bindtap="goOrderState" data-index="1">
+      <view>{{pay_send}}</view>
+      <view>待发货</view>
+    </view>
+    <view class="back" bindtap="goOrderState" data-index="3">
+      <view>{{pay_back}}</view>
+      <view>待退款</view>
+    </view>
+  </view>
+
+  <view class="application">
+    <view class="title">商品应用</view>
+    <view class="option">
+      <view bindtap="navTo" data-index="1">
+        <image src="../../images/hGoods.png"></image>
+        <view>商品</view>
+      </view>
+      <view bindtap="navTo" data-index="2">
+        <image src="../../images/finance.png"></image>
+        <view>财务</view>
+      </view>
+      <view bindtap="navTo" data-index="3">
+        <image src="../../images/tie.png"></image>
+        <view>帖子({{chatnum}})</view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="overview">
+    <view class="title">
+      <image src="../../images/data.png"></image>
+      <text>店铺数据</text>
+    </view>
+    <view class="data">
+      <view bindtap="navtrun" data-url="/pages/backOrder/backOrder">
+        <view>{{tod_amount}}</view>
+        <view>今日总成交</view>
+      </view>
+      <view bindtap="navtrun" data-url="/pages/backOrder/backOrder">
+        <view>{{tod_order}}</view>
+        <view>今日订单</view>
+      </view>
+      <view bindtap="navtrun" data-url="/pages/manageMember/manageMember">
+        <view>{{new_user}}</view>
+        <view>今日新增访客</view>
+      </view>
+      <view bindtap="navtrun" data-url="/pages/manageMember/manageMember">
+        <view>{{all_user}}</view>
+        <view>店铺总会员</view>
+      </view>
+      <view bindtap="navtrun" data-url="/pages/backOrder/backOrder">
+        <view>{{yes_amount}}</view>
+        <view>昨天总成交</view>
+      </view>
+      <view bindtap="navtrun" data-url="/pages/backOrder/backOrder">
+        <view>{{yes_order}}</view>
+        <view>昨天订单</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="z-tarbar">
+  <view>
+    <image src="../../images/job.png"></image>
+    <view  style="color:#2982F8">工作台</view>
+  </view>
+  <view bindtap="navToSet">
+    <image src="../../images/noSetting.png"></image>
+    <view>设置</view>
+  </view>
+</view>

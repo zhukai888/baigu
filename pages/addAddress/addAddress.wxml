@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="del" wx:if="{{id}}">
+    <view bindtap="deladdress">
+      <image src="../../images/delAddress.png"></image>删除地址
+    </view>
+  </view>
+  <view class="content">
+    <view class="item">
+      <text>收货人</text>
+      <input value="{{addressObj.signer_name}}" bindinput="setfileds" bindblur="valName" data-type="name" maxlength="4"></input>
+    </view>
+    <view class="item">
+      <text>电话</text>
+      <input value="{{addressObj.signer_mobile}}" bindinput="mbInput" bindblur="blurPhoneNum" maxlength="11"></input>
+    </view>
+    <view class="item" style="justify-content: start;">
+      <text>地址</text>
+      <picker class="outpicker" mode="region" bindchange="bindRegionChange" value="{{region}}">
+        <view class="pickerView">
+          {{region.length == 0 ? '' :region[0] == region[1] ? region[1]+region[2] :region[0]+region[1]+region[2]}}
+        </view>
+      </picker>
+    </view>
+
+    <textarea placeholder="请输入详细门牌号" value="{{addressObj.address}}" bindinput="setfileds" data-type="address"></textarea>
+    <view class="btn" bindtap="submit">
+      设为默认收货地址
+    </view>
+
+    <view class="tips">
+      <view>
+        <text style="color:#FF0000">*</text> 仅配送本店所在小区内的客户订单
+      </view>
+      <view>其他地址订单将拒绝配送</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,44 @@
+<view class="container" bindtap="closeTime">
+  <view class="time">
+    <view catchtap="openTime">
+      <span>{{time}}</span>
+      <image src="../../images/f-over.png"></image>
+    </view>
+    <view class="timeOpt" wx:if="{{timeFlag}}">
+      <text bindtap="changeTime" data-time="0">实时</text>
+      <text bindtap="changeTime" data-time="7">近七天</text>
+      <text bindtap="changeTime" data-time="30">近30天</text>
+    </view>
+  </view>
+
+  <view class="total">
+    <view class="block">
+      <view class="title">支付金额</view>
+      <view class="count">{{total}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="block">
+      <view class="title">订单数</view>
+      <view class="count">{{nums}}</view>
+    </view>
+  </view>
+
+  <view class="detailData">
+    <view class="d-title">详细数据</view>
+    <view class="dataTable">
+      <view>
+        <text>日期</text>
+        <text>支付金额</text>
+        <text>订单数</text>
+      </view>
+      <block wx:for="{{detailList}}" wx:key="index" wx:for-index="index" wx:for-item="item" wx:if="{{detailList.length > 0}}">
+        <view>
+          <text>{{item.time}}</text>
+          <text>{{item.total}}</text>
+          <text>{{item.nums}}</text>
+        </view>
+      </block>
+      <view class="b-noData" wx:if="{{detailList.length==0 && !loading}}">暂无数据</view>
+    </view>
+  </view>
+</view>

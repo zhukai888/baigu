@@ -1,0 +1,95 @@
+<view bindtap="closeOption">
+  <view class="top">
+    <view class="option">
+      <view catchtap="changeOption">{{timeObj.title}}
+        <image src="../../images/over.png" style="{{showOption ? 'transform: rotateX(180deg);':''}}"></image>
+      </view>
+      <view wx:if="{{showOption}}">
+        <view catchtap="navChange" data-index="{{index}}" wx:for="{{timeList}}" wx:for-item="item" wx:for-index="index" wx:key="index">{{item.title}}</view>
+      </view>
+    </view>
+    <view class="item">
+      <view>
+        <image src="../../images/info.png" catchtap="navTo" data-url="/pages/replay/replay"></image>
+        <mp-badge content="{{replayCount}}" style="position: absolute;right: 36rpx;top: -20rpx;"></mp-badge>
+      </view>
+      <view>
+        <image src="../../images/photo.png" catchtap="navTo" data-url="/pages/photo/photo"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="container">
+    <view class="talk" wx:if="chatList.length >0" wx:for="{{chatList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="header" bindtap="navToCard" data-id="{{item.id}}">
+        <image src="{{item.user.user_font}}"></image>
+        <view class="info">
+          <view class="title">
+            <text>
+          <text>{{item.user.nick_name}}</text>
+            <text class="zd" wx:if="{{item.is_top == 'top'}}">置顶</text>
+            </text>
+            <text>{{item.add_time}}</text>
+          </view>
+          <view class="msg">{{item.title}}</view>
+          <view class="image" wx:if="{{item.imgs.length>0}}">
+            <view wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="idx" wx:key="idx" >
+              <image src="{{cdn_url+img}}" catchtap="previewImage" data-src="{{img}}" mode='aspectFill' data-index="{{index}}"></image>
+            </view>
+          </view>
+          <view class="praise">
+            <view catchtap="talk" data-index="{{index}}" data-tchat="{{item.id}}">
+              <image src="../../images/talk.png"></image>
+              <text>{{item.talkCount}}</text>
+            </view>
+            <view catchtap="changLove" data-index="{{index}}">
+              <image src="{{item.is_fav ==0 ? '../../images/nolike.png' : '../../images/like.png'}}"></image>
+              <text>{{item.fav_nums}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+      <view class="comment" wx:if="{{item.chat.length>0}}">
+        <view class="lev levTwo" wx:for="{{item.chat}}" wx:for-item="tchat" wx:for-index="idx" wx:key="idx" catchtap="changeShadow" data-tchat="{{tchat.id}}" data-index="{{index}}" data-idx="{{idx}}" data-ruser="{{tchat.user}}">
+          <text>
+            <text class="name">{{tchat.user.nick_name}}<text wx:if="{{tchat.ruser==null}}">：</text></text>
+          <text decode="true" wx:if="{{tchat.ruser!=null}}">&nbsp;回复&nbsp;</text>
+          <text class="name" wx:if="{{tchat.ruser!=null}}">{{tchat.ruser.nick_name}}：</text>
+          </text>
+          <text class="substance">{{tchat.title}}</text>
+        </view>
+      </view>
+
+
+      <view class="btn">
+        <input placeholder="评论" focus="{{item.inputFocus}}" value="{{item.value}}" confirm-type="send" bindconfirm="confirmTalk" data-type="discuss" data-id="{{item.id}}" data-index="{{index}}" bindblur="inputblur" wx:if="{{item.inputFocus}}"></input>
+        <view bindtap="talk" data-id="{{item.id}}" data-index="{{index}}" wx:else>评论</view>
+      </view>
+
+      <view class="all">
+        <view>
+          <image src="../../images/more.png" catchtap="openReport" data-index="{{index}}"></image>
+          <view wx:if="{{item.showReport}}" class="report" catchtap="report" data-id="{{item.id}}" data-index="{{index}}">
+            <image src="../../images/black.png"></image>
+            <text>举报此帖</text>
+          </view>
+        </view>
+        <view bindtap="navToCard" data-id="{{item.id}}">
+          <text>查看全部</text>
+          <image src="../../images/over.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="shadow" wx:if="{{inputShadow}}">
+    <view class="send" style="bottom:{{height}}" catchtap="returnNull">
+      <input placeholder="回复 {{replayName}}" bindblur="closeShadow" value="{{replayValue}}" bindinput="bindReplayValue" auto-focus bindfocus="focus" adjust-position="{{false}}"></input>
+      <view catchtap="confirmTalk" data-type="replay">发送</view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="header">
+    <image src="{{user_font}}"></image>
+    <text>{{nick_name}}</text>
+  </view>
+  <view class="content">
+    <view>
+      <input placeholder="请输入您的手机号"  value="{{mobile}}" bindinput="mbInput" maxlength="11" bindblur="blurPhoneNum"></input>
+    </view>
+    <view>
+      <input placeholder="验证码" value="{{code}}" maxlength="4" bindinput="blurCode"></input>
+      <view style="{{codeFlag ? 'background-color: #f7f7f7;color:#999;border:1px solid rgba(154, 154, 154, 0.89);box-sizing: border-box;' : ''}}" bindtap="sendVail">{{codeFlag ? '已发送' : '获取验证码'}}</view>
+    </view>
+
+    <view class="btn" bindtap="submit">确认</view>
+
+  </view>
+  <view class="tips">
+    <view>
+      <text style="color:#FF0000">*</text>为了维护小区和谐
+    </view>
+    <view>需验证身份后才能正常参与社群讨论</view>
+  </view>
+</view>

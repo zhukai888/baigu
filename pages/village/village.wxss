@@ -1,0 +1,320 @@
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.option {
+  position: relative;
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: rgba(242, 242, 242, 1);
+  text-align: center;
+  font-size: 32rpx;
+  color: rgba(26, 26, 26, 1);
+  border-radius: 40rpx;
+}
+
+.option>view:nth-child(2) {
+  margin-top: 2rpx;
+  position: absolute;
+  width: 240rpx;
+  line-height: 34rpx;
+  background: rgba(242, 242, 242, 1);
+  border-radius: 8rpx;
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+
+.option>view:nth-child(2)>view {
+  padding-top: 28rpx;
+}
+
+.option image {
+  width: 19rpx;
+  height: 19rpx;
+  margin-left: 20rpx;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item>view:nth-child(1) {
+  position: relative;
+}
+
+.item>view:nth-child(1)>image {
+  width: 48rpx;
+  height: 45rpx;
+  margin-right: 60rpx;
+}
+
+.item>view:nth-child(2)>image {
+  width: 56rpx;
+  height: 45rpx;
+}
+
+.container {
+  /* height: calc(100% - 110rpx); */
+  min-height: 100%;
+  background-color: #f7f7f7;
+  /* padding-top: 110rpx; */
+  box-sizing: border-box;
+  /* margin-top: 110rpx; */
+  overflow: scroll;
+}
+
+.talk {
+  background-color: #fff;
+  padding: 30rpx 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 10rpx;
+}
+
+.talk:nth-child(1) {
+  padding-top: 140rpx;
+}
+
+.talk .header {
+  display: flex;
+  border-bottom: 1rpx solid #f7f7f7;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.talk .header>image {
+  min-width: 86rpx;
+  max-width: 86rpx;
+  height: 86rpx;
+  border-radius: 50%;
+}
+
+.talk .header .info {
+  padding: 10rpx 0 0 20rpx;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.talk .header .info .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 38rpx;
+  color: rgba(6, 74, 157, 1);
+}
+
+.talk .header .info .title .zd {
+  margin-left: 10rpx;
+  padding: 4rpx 20rpx;
+  box-sizing: border-box;
+  height: 28rpx;
+  background: rgba(255, 214, 24, 1);
+  border-radius: 0px 14rpx 0px 14rpx;
+  font-size: 22rpx;
+  color: rgba(26, 26, 26, 1);
+}
+
+.talk .header .info .title>text:nth-child(2) {
+  font-size: 28rpx;
+  color: rgba(102, 102, 102, 1);
+}
+
+.talk .header .info .msg {
+  font-size: 38rpx;
+  color: rgba(26, 26, 26, 1);
+  padding: 16rpx 0;
+  line-height: 52rpx;
+}
+
+.talk .header .info .image {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  font-size: 0;
+}
+
+.talk .header .info .image>view {
+  width: 33%;
+  padding-bottom: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.talk .header .info .image>view>image {
+  width: 190rpx;
+  height: 190rpx;
+}
+
+.talk .header .praise {
+  padding-top: 16rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  color: rgba(102, 102, 102, 1);
+}
+
+.talk .header .praise>view {
+  display: flex;
+  align-items: center;
+}
+
+.talk .header .praise>view>text {
+  padding-left: 10rpx;
+}
+
+.talk .header .praise>view:nth-child(1)>image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.talk .header .praise>view:nth-child(2)>image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.talk .comment {
+  padding-top: 30rpx;
+  font-size: 26rpx;
+  color: #191919;
+  line-height: 44rpx;
+}
+
+.talk .name {
+  color: #064a9d;
+}
+
+.talk .btn {
+  margin-top: 40rpx;
+  background-color: #f7f7f7;
+  height: 70rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  color: rgba(102, 102, 102, 1);
+}
+
+.talk .all {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: rgba(152, 152, 152, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.talk .all>view {
+  display: flex;
+  align-items: center;
+}
+
+.talk .all>view:nth-child(2)>image {
+  margin-left: 20rpx;
+  width: 19rpx;
+  height: 19rpx;
+}
+
+.talk .all>view:nth-child(1)>image {
+  width: 41rpx;
+  height: 9rpx;
+  margin-right: 10rpx;
+  padding: 10rpx 0;
+}
+
+.lev:active {
+  background-color: #f7f7f7;
+}
+
+.shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.send {
+  position: absolute;
+  height: 110rpx;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 100%;
+}
+
+.send>input {
+  width: 560rpx;
+  height: 80rpx;
+  background-color: #f7f7f7;
+  font-size: 32rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.send>view {
+  height: 80rpx;
+  width: 130rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: rgba(255, 214, 24, 1);
+  border-radius: 6rpx;
+  font-size: 32rpx;
+  color: rgba(26, 26, 26, 1);
+}
+
+.nodata {
+  background-color: #fff;
+  display: flex;
+  font-size: 32rpx;
+  justify-content: center;
+  padding-top: 200rpx;
+  letter-spacing: 8rpx;
+}
+
+.report {
+  width: 170rpx;
+  height: 68rpx;
+  position: relative;
+}
+
+.report image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 170rpx;
+  height: 68rpx;
+  z-index: 1;
+}
+
+.report text {
+  width: 100%;
+  z-index: 10;
+  color: #000;
+  font-size: 28rpx;
+  text-align: center;
+  letter-spacing: 8rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 68rpx;
+  height: 68rpx;
+}

@@ -1,0 +1,43 @@
+<view class="navTab">
+  <scroll-view scroll-x="true">
+    <view style="display:flex;flex-wrap: nowrap;justify-content: space-between;">
+      <view class="nav {{active == index? 'active' : ''}}" wx:for="{{navList}}" wx:for-index="index" wx:for-item="item" wx:key="index" data-index="{{index}}" bindtap="changeNav">
+        <text>{{item.title}}</text>
+        <image src="../../images/navChecked.png" wx:if="{{active == index}}"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="container">
+  <view class="orderList" wx:if="{{orderList.length>0}}">
+    <view class="order" wx:for="{{orderList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="top" wx:for="{{item.goods}}" wx:for-item="good" wx:for-index="idx" wx:key="idx">
+        <image src="{{cdn_url + good.goods.goods_front_image}}"></image>
+        <view class="t-title">
+          <view class="omit">
+            {{good.goods.name}}
+          </view>
+          <view>
+            <text><text style="font-size:24rpx;">￥</text>{{good.goods.shop_price}}</text>
+            <text>x{{good.goods_num}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="price">
+        <text>{{item.pay_status}}</text>
+        <text>共计{{item.nums}}件商品 合计：￥{{item.order_mount}}</text> </view>
+      <view class="btn">
+        <view bindtap="againBuy" data-index="{{index}}" wx:if="{{item.pay_status == '已完成'}}">再次购买</view>
+        <view bindtap="againPay" data-index="{{index}}" data-id="{{item.id}}" wx:if="{{item.pay_status == '待付款'}}">立即付款</view>
+        <view bindtap="refund" data-index="{{index}}" data-id="{{item.id}}" wx:if="{{item.pay_status == '待发货'}}">退款</view>
+        <view bindtap="cancleBack" data-index="{{index}}" data-id="{{item.id}}" wx:if="{{item.pay_status == '退款中'}}">取消退款</view>
+      </view>
+    </view>
+  </view>
+  <view class="noOrder" wx:if="{{orderList.length==0 && !loading}}">
+    <image src="../../images/noOrder.png"></image>
+    <text>暂时没有任何记录~</text>
+    <text>去看看想买点什么吧！</text>
+  </view>
+</view>

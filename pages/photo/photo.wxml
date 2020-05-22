@@ -1,0 +1,12 @@
+<view class="container">
+  <textarea placeholder="这一刻想说什么... " value="{{title}}" bindinput="giveTitle"></textarea>
+  <view class="imageList">
+    <view  wx:for="{{imageList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <image src="{{item}}" bindtap="previewImage" data-src="{{item}}"></image>
+    </view>
+    <view bindtap="changPic">
+      <view class="add">+</view>
+    </view>
+  </view>
+  <view class="btn" bindtap="submit">发布</view>
+</view>

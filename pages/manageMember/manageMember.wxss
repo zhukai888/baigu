@@ -1,0 +1,152 @@
+.container {
+  min-height: 100%;
+}
+
+.time {
+  height: 100rpx;
+  /* border-bottom: 1rpx solid #dfe4e6; */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #323232;
+  position: relative;
+  padding: 0 24rpx;
+}
+
+.time image {
+  margin-left: 20rpx;
+  width: 11rpx;
+  height: 10rpx;
+}
+
+.timeOpt {
+  height: 100rpx;
+  border-top: 1rpx solid #dfe4e6;
+  border-bottom: 1rpx solid #dfe4e6;
+  box-sizing: border-box;
+  line-height: 100rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  padding: 0 24rpx;
+}
+
+.timeOpt>text {
+  margin-right: 100rpx;
+}
+
+.total {
+  border-top: 10rpx solid #f7f7f7;
+  border-bottom: 10rpx solid #f7f7f7;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  align-items: center;
+  height: 230rpx;
+  box-sizing: border-box;
+}
+
+.total .line {
+  width: 2rpx;
+  height: 86rpx;
+  background-color: #dfe4e6;
+}
+
+.total .block .title {
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+}
+
+.total .block .count {
+  padding-top: 30rpx;
+  font-size: 58rpx;
+  color: #333;
+  text-align: center;
+}
+
+.manage {
+  background-color: #f7f7f7;
+  color: #666;
+  font-size: 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.manage>text {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
+.dataTable {
+  padding: 0 24rpx;
+  box-sizing: border-box;
+}
+
+.dataTable .member {
+  display: flex;
+  padding: 30rpx 24rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+}
+
+.dataTable .member image {
+  min-width: 110rpx;
+  max-width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.dataTable .member .content {
+  padding: 14rpx 0;
+  flex: 1;
+}
+
+.dataTable .member .content .name {
+  font-size: 32rpx;
+  color: #333;
+  display: flex;
+  align-items: flex-end;
+}
+
+.dataTable .member .content .name view {
+  max-width: 430rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dataTable .member .content .name>text {
+  background-color: #2870f5;
+  color: #fff;
+  font-size: 20rpx;
+  width: 70rpx;
+  height: 26rpx;
+  border-radius: 13rpx;
+  margin-left: 20rpx;
+  text-align: center;
+  line-height: 26rpx;
+}
+
+.dataTable .member .content .data {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 24rpx;
+  padding-top: 20rpx;
+}
+
+.dataTable .member .content .data>view>text:nth-child(1) {
+  width: 125rpx;
+  display: inline-block;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

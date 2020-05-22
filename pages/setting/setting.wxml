@@ -1,0 +1,73 @@
+<view class="container">
+  <view class="navTab">
+    <scroll-view scroll-x="true" style="height:100%">
+      <view class="top">
+        <view class="nav" wx:for="{{categoryList}}" wx:for-index="index" wx:for-item="item" wx:key="index" data-index="{{index}}" bindtap="navChange">
+          <view>{{item.title}}</view>
+          <view style="width:50rpx;height:6rpx;background-color:#fff" wx:if="{{navIndex == index}}"></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="content" wx:if="{{navIndex == 0}}">
+    <view>
+      <text>配送时间：</text>
+      <view style="flex:1;">
+        <picker bindchange="bindPickerChange" mode="multiSelector" range="{{customArray}}" value="{{multiIndex}}">
+          <view class="picker">
+            {{customArray[0][multiIndex[0]]}} - {{customArray[1][multiIndex[1]]}}
+          </view>
+        </picker>
+      </view>
+      <image src="../../images/arrowR.png"></image>
+    </view>
+    <view>
+      <text>配送费：</text>
+      <input placeholder="请输入配送费" bindinput="sendMoneyInput" value="{{sendMoney}}"></input>
+    </view>
+    <view>
+      <text>起送价：</text>
+      <input placeholder="请输入起送价" bindinput="deliverMoneyInput" value="{{deliverMoney}}"></input>
+    </view>
+    <view>
+      <text>满额免配送费：</text>
+      <input placeholder="请输入满额免配送费" bindinput="fullAmountInput" value="{{fullAmount}}"></input>
+    </view>
+  </view>
+
+  <view class="content" wx:if="{{navIndex == 1}}">
+    <view>
+      <text>启用小票打印：</text>
+      <switch color="#2870F5" checked="{{is_use}}" bindchange="switchChange" />
+    </view>
+    <view>
+      <text>打印机名称：</text>
+      <input placeholder="请输入打印机名称" bindinput="nameInput" value="{{name}}"></input>
+    </view>
+    <view>
+      <text>设备号：</text>
+      <input placeholder="请输入设备号" bindinput="numberInput" value="{{number}}"></input>
+    </view>
+    <view>
+      <text>密钥：</text>
+      <input placeholder="请输入密钥" bindinput="keyInput" value="{{key}}"></input>
+    </view>
+    <view>
+      <text>打印份数：</text>
+      <input placeholder="请输入打印份数" bindinput="countInput" value="{{count}}"></input>
+    </view>
+  </view>
+  <view class="btn" bindtap="sureSet">确定修改</view>
+</view>
+
+<view class="z-tarbar">
+  <view bindtap="navToJob">
+    <image src="../../images/noJob.png"></image>
+    <view>工作台</view>
+  </view>
+  <view>
+    <image src="../../images/setting.png"></image>
+    <view style="color:#2982F8">设置</view>
+  </view>
+</view>

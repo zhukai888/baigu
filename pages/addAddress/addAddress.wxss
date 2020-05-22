@@ -1,0 +1,102 @@
+.container {
+  min-height: 100%;
+  background-color: #f7f7f7;
+  padding: 20rpx 24rpx 0;
+  box-sizing: border-box;
+}
+
+.content {
+  background-color: #fff;
+  padding: 0 30rpx 65rpx;
+}
+
+.content .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+}
+
+.content .item>text {
+  width: 120rpx;
+  font-size: 32rpx;
+  color: rgba(102, 102, 102, 1);
+}
+
+.content .item>input {
+  flex: 1;
+  font-size: 32rpx;
+  color: rgba(26, 26, 26, 1);
+}
+
+textarea {
+  margin-top: 30rpx;
+  background-color: #f7f7f7;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  color: rgba(102, 102, 102, 1);
+  border-radius: 1rpx;
+  width: 100%;
+  height: 160rpx;
+}
+
+.btn {
+  margin-top: 60rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  text-align: center;
+  background: rgba(255, 214, 24, 1);
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  color: rgba(26, 26, 26, 1);
+}
+
+.tips {
+  margin-top: 40rpx;
+}
+
+.tips>view {
+  text-align: center;
+  font-size: 32rpx;
+  color: #1a1a1a;
+  line-height: 50rpx;
+}
+
+.outpicker {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.pickerView {
+  font-size: 32rpx;
+  color: rgba(26, 26, 26, 1);
+  width: 100%;
+  height: 80rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.del {
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.del>view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: rgba(26, 26, 26, 1);
+}
+
+.del>view>image {
+  width: 40rpx;
+  height: 38rpx;
+  margin-right: 20rpx;
+}

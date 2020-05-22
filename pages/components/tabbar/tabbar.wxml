@@ -1,0 +1,8 @@
+<view class="weui-tabbar {{extClass}}">
+  <view data-index='{{index}}' bindtap="tabChange" wx:for="{{list}}" class="weui-tabbar__item {{index === current ? 'weui-bar__item_on' : ''}}">
+    <view style="position: relative;display:inline-block;">
+      <image src="{{current === index ? item.selectedIconPath : item.iconPath}}" class="weui-tabbar__icon"></image>
+    </view>
+    <view class="weui-tabbar__label">{{item.text}}</view>
+  </view>
+</view>

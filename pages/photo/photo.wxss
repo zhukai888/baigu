@@ -1,0 +1,57 @@
+.container {
+  min-height: 100%;
+  padding: 20rpx 24rpx;
+  box-sizing: border-box;
+}
+
+textarea {
+  padding: 20rpx;
+  box-sizing: border-box;
+  height: 290rpx;
+  background: rgba(247, 247, 247, 1);
+  width: 100%;
+  font-size: 32rpx;
+  color: rgba(26, 26, 26, 1);
+}
+
+.imageList {
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  padding-top: 10rpx;
+}
+
+.imageList>view {
+  margin-top: 10rpx;
+  width: 25%;
+  height: 168rpx;
+}
+
+.imageList>view>image {
+  width: 168rpx;
+  height: 168rpx;
+  margin: 0 auto;
+}
+
+.imageList .add{
+  background:rgba(247,247,247,1);
+  color: #989898;
+  font-size: 60rpx;
+  padding-bottom: 10rpx;
+  height: 168rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.btn {
+  margin-top: 150rpx;
+  height: 110rpx;
+  background: rgba(255, 214, 24, 1);
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  color: rgba(26, 26, 26, 1);
+  text-align: center;
+  line-height: 110rpx;
+}

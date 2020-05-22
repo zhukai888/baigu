@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="header">
+    <view>你好 获取微信昵称</view>
+    <view>我们的团队时刻准备着欢迎你的加入！</view>
+  </view>
+
+  <view class="partone">
+    <view class="content">
+      <view class="top">
+        个人介绍
+      </view>
+      <view class="item">
+        <text>姓名</text>
+        <input value="{{name}}" bindinput="setfileds" bindblur="valName" data-type="name" maxlength="4"></input>
+      </view>
+      <view class="item">
+        <text>电话</text>
+        <input value="{{mobile}}" bindinput="mbInput" bindblur="blurPhoneNum" maxlength="11"></input>
+      </view>
+      <view class="city">
+        <text>城市</text>
+        <picker class="outpicker" mode="region" bindchange="bindRegionChange" value="{{region}}">
+          <view class="pickerView">
+            {{region.length == 0 ? '' :region[0] == region[1] ? region[1]+region[2] :region[0]+region[1]+region[2]}}
+          </view>
+        </picker>
+      </view>
+
+      <textarea placeholder="填写你的个人介绍，方便团队成员更块了解到你哦~" value="{{suggest}}" bindinput="setfileds" data-type="suggest"></textarea>
+      <view class="btn" bindtap="submit">提交信息</view>
+      <view class="tips">
+        <text style="color:#FF0000">*</text> 我们将于24小时内与你取得联系，请保持通话顺畅。
+      </view>
+    </view>
+  </view>
+
+  <view class="partTwo">
+    <view class="top">
+      合伙人说明
+    </view>
+    <view class="bottom">
+      <text>一、若你是超市老板想加入我们？</text>
+      <text>请立即联系我们，我们将会为你提供全面的业务方案，让你生意更加红火。</text>
+      <text>二、若你想创业找项目？</text>
+      <text>无论是城市代理还是投资找项目也请立即联系我们，我们将为你提供最优质的条件及专业的运作团队。</text>
+    </view>
+  </view>
+</view>

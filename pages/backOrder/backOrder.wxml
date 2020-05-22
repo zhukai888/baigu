@@ -1,0 +1,62 @@
+<view class="navTab">
+  <scroll-view scroll-x="true" style="height:100%">
+    <view class="top">
+      <view class="nav" wx:for="{{categoryList}}" wx:for-index="index" wx:for-item="item" wx:key="index" data-index="{{index}}" bindtap="navChange">
+        <view>{{item.title}}({{item.count}})</view>
+        <view style="width:50rpx;height:6rpx;background-color:#fff" wx:if="{{navIndex == index}}"></view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="container">
+  <view class="goods" wx:if="{{orderList.length>0}}" wx:for="{{orderList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view class="time">下单：{{item.order_time}}</view>
+    <view class="product">
+      <view class="good" wx:for="{{item.goods}}" wx:for-item="good" wx:for-index="idx" wx:key="idx" >
+        <image src="{{cdn_url + good.goods.goods_front_image}}"></image>
+        <view class="content">
+          <view>{{good.goods.name}}</view>
+          <view>
+            <text><text style="font-size:24rpx;">￥</text>{{good.goods.shop_price}}</text>
+            <text>x{{good.goods_num}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="total">
+      <view>
+        <image src="../../images/wechat.png"></image>
+        <text>{{item.nick_name}}</text>
+      </view>
+      <view>共计{{item.num}}件商品 合计：￥{{item.order_mount}}</view>
+    </view>
+    <view class="address">
+      <image src="../../images/b_address.png"></image>
+      <view>
+        {{item.signer_name}}
+        <text decode="true" style="color:#2870F5">&nbsp;{{item.phone}}&nbsp;</text> ，{{item.address}}
+      </view>
+    </view>
+    <view class="remarks" wx:if="{{item.post_script}}">备注：{{item.post_script}}</view>
+    <view class="btn" wx:if="{{item.pay_status == 'TRADE_SEND'}}">
+      <button bindtap="printing" data-id="{{item.id}}">再次打印小票</button>
+      <button bindtap="delivery" data-id="{{item.id}}" data-index="{{index}}">订单待发货</button>
+    </view>
+    <view class="btn" wx:if="{{item.pay_status == 'BACKING'}}">
+      <button bindtap="rejectBack" data-id="{{item.id}}" data-index="{{index}}">拒绝退款</button>
+      <button bindtap="openBack" data-id="{{item.id}}" data-index="{{index}}">同意退款</button>
+    </view>
+  </view>
+  <view class="b-noData" wx:if="{{orderList.length==0 && !loading}}">暂无数据</view>
+</view>
+
+<view class="sure" wx:if="{{sureFlag}}">
+  <view class="dialog">
+  <text class="close" bindtap="closeSure">×</text>
+    <view class="title">是否确认退款</view>
+    <view class="tip">为避免造成损失请再次确认</view>
+    <button class="sureBtn" catchtap="sureBack">确认</button>
+  </view>
+</view>
+
